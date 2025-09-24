@@ -3,7 +3,7 @@ extends CharacterBody2D
 const SPEED_ACC = 20
 const SPEED_MAX = 200
 
-const JUMP_FORCE = -500 
+const JUMP_FORCE = -200
 
 func _physics_process(_delta: float) -> void:
 	up_direction = Vector2(0,-1)
@@ -18,7 +18,6 @@ func _physics_process(_delta: float) -> void:
 		velocity.y = JUMP_FORCE
 
 	if not is_on_floor():
-		pass
-		# velocity.y += 20
+		velocity.y += 10
 
 	move_and_slide()

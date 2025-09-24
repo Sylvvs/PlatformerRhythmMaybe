@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dltcbpil41j82"]
 
-[ext_resource type="Script" uid="uid://b3bnv1ruv581n" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://b3bnv1ruv581n" path="res://Scenes/Player/player.gd" id="1_4flbx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(12, 20)
@@ -20,3 +20,6 @@ shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_onrkg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
