@@ -16,6 +16,8 @@ var dash_dir := Vector2.ZERO
 var last_x_dir := 0
 var last_y_dir := 0
 
+@onready var animation_tree = $AnimationTree
+
 func _physics_process(delta: float) -> void:
 	var input_vec := get_input_vector()
 	
@@ -37,6 +39,9 @@ func _physics_process(delta: float) -> void:
 
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		animation_tree["parameters/conditions/idle"] = false
+		animation_tree["parameters/conditions/jumping"] = true
+		animation_tree["parameters/conditions/dashing"] = false
 		velocity.y = JUMP_FORCE
 		dash_timer = DASH_TIME
 	if Input.is_action_just_released("jump") and velocity.y < 0 and dash_timer >= DASH_TIME:
@@ -44,6 +49,7 @@ func _physics_process(delta: float) -> void:
 
 
 	if Input.is_action_just_pressed("dash") and dashes > 0 and dash_timer >= DASH_TIME:
+		animation_tree["parameters/conditions/dashing"] = true
 		dashes -= 1
 		dash_timer = 0.0
 		velocity = Vector2.ZERO
@@ -61,6 +67,7 @@ func _physics_process(delta: float) -> void:
 		if dash_timer >= DASH_TIME:
 			velocity = Vector2.ZERO
 			dash_timer = DASH_TIME
+			animation_tree["parameters/conditions/dashing"] = false
 
 	if dash_timer >= DASH_TIME and !is_on_floor():
 		velocity.y += GRAVITY 
@@ -69,7 +76,17 @@ func _physics_process(delta: float) -> void:
 		dashes = 1
 
 	move_and_slide()
+	
+	if is_on_floor():
+		animation_tree["parameters/conditions/jumping"] = false
 
+	if abs(velocity.x) > 0 and is_on_floor():
+		pass
+		animation_tree["parameters/conditions/running"] = true
+		animation_tree["parameters/conditions/idle"] = false
+	elif is_on_floor():
+		animation_tree["parameters/conditions/running"] = false
+		animation_tree["parameters/conditions/idle"] = true
 func get_input_vector() -> Vector2:
 	last_x_dir = get_axis_dir("walk_left", "walk_right", last_x_dir)
 	last_y_dir = get_axis_dir("up", "down", last_y_dir)
