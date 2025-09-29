@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dkl60afcnhorx" path="res://Sprites/Player Sprites/wallslide.png" id="5_jlvik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(8, 2)
+size = Vector2(8, 9)
 
 [sub_resource type="Animation" id="Animation_gk6dx"]
 resource_name = "idle"
@@ -159,13 +159,11 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_4flbx")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_onrkg")
-
-[node name="floor_hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7)
+position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
