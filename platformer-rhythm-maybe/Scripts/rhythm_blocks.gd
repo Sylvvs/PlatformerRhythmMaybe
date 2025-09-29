@@ -74,7 +74,7 @@ func _turn_on(color):
 
 func _add_collision(pos):
 	var block = collision.instantiate()
-	get_parent().add_child(block)
+	get_parent().add_child.call_deferred(block)
 	collision_blocks.push_front(block)
 	block.position = map_to_local(pos)
 
