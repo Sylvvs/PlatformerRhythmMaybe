@@ -6,8 +6,8 @@ const JUMP_FORCE = -175
 const GRAVITY = 7
 
 # Dash
-const DASH_SPEED = 400
-const DASH_TIME = 0.15
+const DASH_SPEED = 300
+const DASH_TIME = 0.20
 
 var dashes := 1
 var dash_timer := DASH_TIME
