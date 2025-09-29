@@ -6,8 +6,8 @@ const JUMP_FORCE = -175
 const GRAVITY = 7
 
 # Dash
-const DASH_SPEED = 400
-const DASH_TIME = 0.15
+const DASH_SPEED = 300
+const DASH_TIME = 0.20
 
 var dashes := 1
 var dash_timer := DASH_TIME
@@ -85,3 +85,7 @@ func get_axis_dir(neg_action: String, pos_action: String, last_dir: int) -> int:
 			last_dir = 0
 
 	return last_dir
+
+func get_global_rect() -> Rect2:
+	var shape = $Hitbox.shape as RectangleShape2D
+	return Rect2(global_position - shape.extents, shape.extents * 2.0)
