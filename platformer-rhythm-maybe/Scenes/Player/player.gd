@@ -35,7 +35,6 @@ func _physics_process(delta: float) -> void:
 			velocity.x = min(velocity.x - friction, SPEED_MAX)
 		elif velocity.x < -SPEED_MAX:
 			velocity.x = max(velocity.x + friction, -SPEED_MAX)
-	print(velocity.x)
 
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():

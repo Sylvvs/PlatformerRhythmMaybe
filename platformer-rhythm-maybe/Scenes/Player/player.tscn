@@ -37,6 +37,34 @@ tracks/1/keys = {
 "values": [Rect2(0, 0, 16, 16)]
 }
 
+[sub_resource type="Animation" id="Animation_0u5uq"]
+resource_name = "dash"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_dd0ac")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:region_rect")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(16, 0, 16, 16), Rect2(55, 0, 32, 16), Rect2(103, 0, 32, 16), Rect2(151, 0, 32, 16), Rect2(201, 0, 32, 16), Rect2(249, 0, 32, 16), Rect2(296, 0, 32, 16)]
+}
+
 [sub_resource type="Animation" id="Animation_gk6dx"]
 resource_name = "idle"
 loop_mode = 1
@@ -150,34 +178,6 @@ tracks/1/keys = {
 "values": [Rect2(0, 0, 16, 16), Rect2(16, 0, 16, 16), Rect2(32, 0, 16, 16)]
 }
 
-[sub_resource type="Animation" id="Animation_0u5uq"]
-resource_name = "dash"
-length = 1.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("6_dd0ac")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:region_rect")
-tracks/1/interp = 0
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Rect2(16, 0, 16, 16), Rect2(55, 0, 32, 16), Rect2(103, 0, 32, 16), Rect2(151, 0, 32, 16), Rect2(201, 0, 32, 16), Rect2(249, 0, 32, 16), Rect2(296, 0, 32, 16)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7g0yx"]
 _data = {
 &"RESET": SubResource("Animation_74mp2"),
@@ -271,11 +271,11 @@ states/wallslide/position = Vector2(676, 4)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_74mp2"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_oikmp"), "idle", "dash", SubResource("AnimationNodeStateMachineTransition_06tpx"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_7g0yx"), "jump", "dash", SubResource("AnimationNodeStateMachineTransition_dey5f"), "dash", "run", SubResource("AnimationNodeStateMachineTransition_r5xpd"), "dash", "idle", SubResource("AnimationNodeStateMachineTransition_ks1b7"), "dash", "jump", SubResource("AnimationNodeStateMachineTransition_hnuln"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_aqm4k"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_rcvs5"), "run", "dash", SubResource("AnimationNodeStateMachineTransition_h8ma5"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_eksi1"), "jump", "run", SubResource("AnimationNodeStateMachineTransition_jincj")]
 graph_offset = Vector2(-318, -94)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 1
 script = ExtResource("1_4flbx")
 
-[node name="Hitbox" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_onrkg")
 

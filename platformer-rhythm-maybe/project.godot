@@ -21,6 +21,10 @@ window/size/viewport_width=256
 window/size/viewport_height=144
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+Player=""
+
 [input]
 
 walk_left={
