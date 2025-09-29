@@ -5,6 +5,9 @@ var current_scene: Node = null
 func _ready() -> void:
 	load_scene("MossyCave")
 
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		load_scene("level")
 
 func load_scene(scene_name: String) -> void:
 	var path = "res://Scenes/Levels/%s.tscn" % scene_name
@@ -31,10 +34,10 @@ func load_scene(scene_name: String) -> void:
 func _on_area_entered(area, body) -> void:
 	if not body.is_in_group("Player"):
 		return
-	print(area.next_scene)
+	
 	if not area.next_scene:
 		push_error("Area2D has no next_scene!!!")
 		return
-	print("sdfg")
+	
 	var next_scene = area.get("next_scene")
 	load_scene(next_scene)
