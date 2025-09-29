@@ -97,3 +97,4 @@ func get_axis_dir(neg_action: String, pos_action: String, last_dir: int) -> int:
 func get_global_rect() -> Rect2:
 	var shape = $Hitbox.shape as RectangleShape2D
 	return Rect2(global_position - shape.extents, shape.extents * 2.0)
+#
