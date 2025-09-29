@@ -4,6 +4,7 @@ extends TileMapLayer
 
 @onready var collision = load("res://Scenes/Logic/BlockCollision.tscn")
 @onready var player = $"../Player"
+@onready var audio_player = $"../AudioStreamPlayer"
 
 var blue_blocks = []
 var pink_blocks = []
@@ -11,10 +12,12 @@ var pink_blocks = []
 var blue_active = true;
 var pending_color = ""
 
-var beat_interval = 300.0/bpm;
-var time = 0.0;
+var beat_interval = 160.0/bpm;
+var time = 0.8;
 
 func _ready() -> void:
+	audio_player.play()
+	
 	for cell in get_used_cells():
 		var data = get_cell_tile_data(cell)
 		var color = data.get_custom_data("Color")
