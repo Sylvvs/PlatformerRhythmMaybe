@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://b557jb4h1g06a"]
+[gd_scene load_steps=18 format=4 uid="uid://b557jb4h1g06a"]
 
 [ext_resource type="PackedScene" uid="uid://dltcbpil41j82" path="res://Scenes/Player/player.tscn" id="1_7x7pb"]
 [ext_resource type="Texture2D" uid="uid://c2ecir8oilqoh" path="res://Sprites/Backgrounds/Clouds/Clouds 1/1.png" id="1_rv5g2"]
@@ -6,6 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://607qfw5q6mrs" path="res://Tile maps/Small plains thing/tileset/tileset16x16.png" id="2_yjxcc"]
 [ext_resource type="Texture2D" uid="uid://vbymhdk1ueor" path="res://Sprites/Backgrounds/Clouds/Clouds 1/3.png" id="3_i5435"]
 [ext_resource type="Texture2D" uid="uid://do1vp7uh0o6yk" path="res://Sprites/Backgrounds/Clouds/Clouds 1/4.png" id="4_jbixu"]
+[ext_resource type="Texture2D" uid="uid://b0a7qtiol6abi" path="res://Tile maps/Planty cave/ShineOnSprites/Sheets/SheetA.png" id="7_rxcld"]
+[ext_resource type="Texture2D" uid="uid://cxjym1yycvd6d" path="res://Tile maps/PlatformerWalls/Castle/OutlinedSimple/Diamond-Blue.png" id="8_j3yal"]
+[ext_resource type="Texture2D" uid="uid://dqakr164u7h4u" path="res://Tile maps/PlatformerWalls/Castle/OutlinedSimple/Pink.png" id="9_r0lyn"]
+[ext_resource type="Script" uid="uid://umjvgxn3ts5a" path="res://Scripts/rhythm_blocks.gd" id="10_c5s4o"]
+[ext_resource type="AudioStream" uid="uid://bnselbinqchcf" path="res://Audio/mus/summit_casette.mp3" id="11_j3yal"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lkqqh"]
 texture = ExtResource("2_yjxcc")
@@ -59,45 +64,276 @@ texture = ExtResource("2_yjxcc")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lkqqh")
 
-[node name="level" type="Node2D"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kogc4"]
+texture = ExtResource("7_rxcld")
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+1:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+2:6/0 = 0
+4:6/0 = 0
+7:6/0 = 0
+11:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+11:10/0 = 0
+1:6/0 = 0
+1:6/0/custom_data_1 = "bouncy"
 
-[node name="Node2D" type="Node2D" parent="."]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_on2c6"]
+texture = ExtResource("8_j3yal")
+0:0/0 = 0
+0:0/0/custom_data_0 = "blue"
+1:0/0 = 0
+1:0/0/custom_data_0 = "blue"
+2:0/0 = 0
+2:0/0/custom_data_0 = "blue"
+3:0/0 = 0
+3:0/0/custom_data_0 = "blue"
+4:0/0 = 0
+4:0/0/custom_data_0 = "blue"
+5:0/0 = 0
+5:0/0/custom_data_0 = "blue"
+6:0/0 = 0
+6:0/0/custom_data_0 = "blue"
+7:0/0 = 0
+7:0/0/custom_data_0 = "blue"
+8:0/0 = 0
+8:0/0/custom_data_0 = "blue"
+9:0/0 = 0
+9:0/0/custom_data_0 = "blue"
+0:1/0 = 0
+0:1/0/custom_data_0 = "blue"
+1:1/0 = 0
+1:1/0/custom_data_0 = "blue"
+2:1/0 = 0
+2:1/0/custom_data_0 = "blue"
+3:1/0 = 0
+3:1/0/custom_data_0 = "blue"
+4:1/0 = 0
+4:1/0/custom_data_0 = "blue"
+5:1/0 = 0
+5:1/0/custom_data_0 = "blue"
+6:1/0 = 0
+6:1/0/custom_data_0 = "blue"
+7:1/0 = 0
+7:1/0/custom_data_0 = "blue"
+8:1/0 = 0
+8:1/0/custom_data_0 = "blue"
+9:1/0 = 0
+9:1/0/custom_data_0 = "blue"
+0:2/0 = 0
+0:2/0/custom_data_0 = "blue"
+1:2/0 = 0
+1:2/0/custom_data_0 = "blue"
+2:2/0 = 0
+2:2/0/custom_data_0 = "blue"
+3:2/0 = 0
+3:2/0/custom_data_0 = "blue"
+4:2/0 = 0
+4:2/0/custom_data_0 = "blue"
+5:2/0 = 0
+5:2/0/custom_data_0 = "blue"
+6:2/0 = 0
+6:2/0/custom_data_0 = "blue"
+7:2/0 = 0
+7:2/0/custom_data_0 = "blue"
+8:2/0 = 0
+8:2/0/custom_data_0 = "blue"
+9:2/0 = 0
+9:2/0/custom_data_0 = "blue"
 
-[node name="Parallax2D" type="Parallax2D" parent="Node2D"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vn0m0"]
+texture = ExtResource("9_r0lyn")
+0:0/0 = 0
+0:0/0/custom_data_0 = "pink"
+1:0/0 = 0
+1:0/0/custom_data_0 = "pink"
+2:0/0 = 0
+2:0/0/custom_data_0 = "pink"
+3:0/0 = 0
+3:0/0/custom_data_0 = "pink"
+4:0/0 = 0
+4:0/0/custom_data_0 = "pink"
+5:0/0 = 0
+5:0/0/custom_data_0 = "pink"
+6:0/0 = 0
+6:0/0/custom_data_0 = "pink"
+7:0/0 = 0
+7:0/0/custom_data_0 = "pink"
+8:0/0 = 0
+8:0/0/custom_data_0 = "pink"
+9:0/0 = 0
+9:0/0/custom_data_0 = "pink"
+0:1/0 = 0
+0:1/0/custom_data_0 = "pink"
+1:1/0 = 0
+1:1/0/custom_data_0 = "pink"
+2:1/0 = 0
+2:1/0/custom_data_0 = "pink"
+3:1/0 = 0
+3:1/0/custom_data_0 = "pink"
+4:1/0 = 0
+4:1/0/custom_data_0 = "pink"
+5:1/0 = 0
+5:1/0/custom_data_0 = "pink"
+6:1/0 = 0
+6:1/0/custom_data_0 = "pink"
+7:1/0 = 0
+7:1/0/custom_data_0 = "pink"
+8:1/0 = 0
+8:1/0/custom_data_0 = "pink"
+9:1/0 = 0
+9:1/0/custom_data_0 = "pink"
+0:2/0 = 0
+0:2/0/custom_data_0 = "pink"
+1:2/0 = 0
+1:2/0/custom_data_0 = "pink"
+2:2/0 = 0
+2:2/0/custom_data_0 = "pink"
+3:2/0 = 0
+3:2/0/custom_data_0 = "pink"
+4:2/0 = 0
+4:2/0/custom_data_0 = "pink"
+5:2/0 = 0
+5:2/0/custom_data_0 = "pink"
+6:2/0 = 0
+6:2/0/custom_data_0 = "pink"
+7:2/0 = 0
+7:2/0/custom_data_0 = "pink"
+8:2/0 = 0
+8:2/0/custom_data_0 = "pink"
+9:2/0 = 0
+9:2/0/custom_data_0 = "pink"
+
+[sub_resource type="TileSet" id="TileSet_r52a4"]
+physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "Color"
+custom_data_layer_0/type = 4
+custom_data_layer_1/name = "Type"
+custom_data_layer_1/type = 4
+sources/2 = SubResource("TileSetAtlasSource_on2c6")
+sources/3 = SubResource("TileSetAtlasSource_vn0m0")
+sources/0 = SubResource("TileSetAtlasSource_kogc4")
+
+[node name="Cloud level" type="Node2D"]
+
+[node name="Cloud Background" type="Node2D" parent="."]
+
+[node name="Layer 1" type="Parallax2D" parent="Cloud Background"]
 scroll_scale = Vector2(0.1, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D"]
-position = Vector2(300, -50)
-scale = Vector2(1.5, 1.5)
+[node name="Sprite 1" type="Sprite2D" parent="Cloud Background/Layer 1"]
+position = Vector2(300, 0)
+scale = Vector2(2, 2)
 texture = ExtResource("1_rv5g2")
 
-[node name="Parallax2D2" type="Parallax2D" parent="Node2D"]
+[node name="Layer 2" type="Parallax2D" parent="Cloud Background"]
 scroll_scale = Vector2(0.2, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D2"]
-position = Vector2(300, -50)
-scale = Vector2(1.5, 1.5)
+[node name="Sprite 2" type="Sprite2D" parent="Cloud Background/Layer 2"]
+position = Vector2(300, 0)
+scale = Vector2(2, 2)
 texture = ExtResource("2_lhx7y")
 
-[node name="Parallax2D3" type="Parallax2D" parent="Node2D"]
+[node name="Layer 3" type="Parallax2D" parent="Cloud Background"]
 scroll_scale = Vector2(0.3, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D3"]
-position = Vector2(300, -50)
-scale = Vector2(1.5, 1.5)
+[node name="Sprite 3" type="Sprite2D" parent="Cloud Background/Layer 3"]
+position = Vector2(300, 0)
+scale = Vector2(2, 2)
 texture = ExtResource("3_i5435")
 
-[node name="Parallax2D4" type="Parallax2D" parent="Node2D"]
+[node name="Layer 4" type="Parallax2D" parent="Cloud Background"]
 scroll_scale = Vector2(0.4, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D4"]
-position = Vector2(300, -50)
-scale = Vector2(1.5, 1.5)
+[node name="Sprite 4" type="Sprite2D" parent="Cloud Background/Layer 4"]
+position = Vector2(300, 0)
+scale = Vector2(2, 2)
 texture = ExtResource("4_jbixu")
 
 [node name="Player" parent="." instance=ExtResource("1_7x7pb")]
-position = Vector2(19, 110)
+position = Vector2(352, 68)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD//wgAAAAAAAAAAAAAAAgAAAABAAAAAAABAAgAAAACAAAAAAACAAgAAAACAAAAAAADAAgAAAACAAAAAAAEAAgAAAACAAAAAAAFAAgAAAACAAAAAAACAAYAAAAEAAEAAAACAAcAAAAEAAIAAAADAAYAAAAFAAEAAAADAAcAAAAFAAIAAAABAAcAAAAFAAAAAAAEAAcAAAAFAAAAAAAGAAgAAAADAAAAAAAHAAgAAAAEAAAAAAAHAAUAAAAAAAMAAAAIAAUAAAABAAMAAAAJAAUAAAACAAMAAAAOAAEAAAAGAAAAAAAOAAIAAAAGAAEAAAAOAAMAAAAGAAIAAAATAAUAAAAAAAAAAAAUAAUAAAABAAAAAAAUAAYAAAABAAEAAAAUAAcAAAABAAIAAAAVAAUAAAACAAAAAAAVAAYAAAACAAEAAAAVAAcAAAACAAIAAAAWAAUAAAADAAAAAAAWAAYAAAADAAEAAAAWAAcAAAADAAIAAAAXAAUAAAAEAAAAAAAZAAAAAAAAAAMAAAAaAAAAAAABAAMAAAAbAAAAAAACAAMAAAAWAPn/AAAGAAAAAAAWAPr/AAAGAAEAAAAWAPv/AAAGAAIAAAANAPb/AAAAAAAAAAAOAPb/AAABAAAAAAAOAPf/AAABAAEAAAAOAPj/AAABAAIAAAAPAPb/AAACAAAAAAAPAPf/AAACAAEAAAAPAPj/AAACAAIAAAAQAPb/AAADAAAAAAAQAPf/AAADAAEAAAAQAPj/AAADAAIAAAARAPb/AAAEAAAAAAAVAAMAAAAEAAEAAAAVAAQAAAAEAAIAAAAWAAMAAAAFAAEAAAAWAAQAAAAFAAIAAAAPAPX/AAAEAAMAAAAWAPj/AAAFAAAAAAAUAAQAAAAFAAAAAAAGAAcAAAAGAAMAAAAIAAQAAAAGAAMAAAAZAP//AAAGAAMAAAAOAAAAAAAGAAMAAAAOAPX/AAADAAMAAAABAAkAAAACAAEAAAACAAkAAAACAAEAAAADAAkAAAACAAEAAAAEAAkAAAACAAEAAAAFAAkAAAACAAEAAAAAAAkAAAABAAEAAAAAAAoAAAABAAIAAAAGAAkAAAADAAEAAAAGAAoAAAADAAIAAAABAAoAAAACAAIAAAACAAoAAAACAAIAAAADAAoAAAACAAIAAAAEAAoAAAACAAIAAAAFAAoAAAACAAIAAAAQAPX/AAAFAAMAAAAoAAEAAAADAAMAAAAoAAIAAAADAAMAAAACAPL/AAAAAAAAAAADAPD/AAAEAAEAAAADAPH/AAAEAAIAAAADAPL/AAABAAAAAAADAPP/AAABAAEAAAADAPT/AAABAAIAAAAEAPD/AAAFAAEAAAAEAPH/AAAFAAIAAAAEAPL/AAACAAAAAAAEAPP/AAACAAEAAAAEAPT/AAACAAIAAAAFAPH/AAAFAAAAAAAFAPL/AAADAAAAAAAFAPP/AAADAAEAAAAFAPT/AAADAAIAAAAGAPL/AAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wgAAAAAAAAAAAAAAAgAAAABAAAAAAABAAgAAAACAAAAAAACAAgAAAACAAAAAAADAAgAAAACAAAAAAAEAAgAAAACAAAAAAAFAAgAAAACAAAAAAACAAYAAAAEAAEAAAACAAcAAAAEAAIAAAADAAYAAAAFAAEAAAADAAcAAAAFAAIAAAABAAcAAAAFAAAAAAAEAAcAAAAFAAAAAAAGAAgAAAADAAAAAAAHAAgAAAAEAAAAAAAHAAUAAAAAAAMAAAAIAAUAAAABAAMAAAAJAAUAAAACAAMAAAAOAAEAAAAGAAAAAAAOAAIAAAAGAAEAAAAOAAMAAAAGAAIAAAATAAUAAAAAAAAAAAAUAAUAAAABAAAAAAAUAAYAAAABAAEAAAAUAAcAAAABAAIAAAAVAAUAAAACAAAAAAAVAAYAAAACAAEAAAAVAAcAAAACAAIAAAAWAAUAAAADAAAAAAAWAAYAAAADAAEAAAAWAAcAAAADAAIAAAAXAAUAAAAEAAAAAAANAPb/AAAAAAAAAAAOAPb/AAABAAAAAAAOAPf/AAABAAEAAAAOAPj/AAABAAIAAAAPAPb/AAACAAAAAAAPAPf/AAACAAEAAAAPAPj/AAACAAIAAAAQAPb/AAADAAAAAAAQAPf/AAADAAEAAAAQAPj/AAADAAIAAAARAPb/AAAEAAAAAAAVAAMAAAAEAAEAAAAVAAQAAAAEAAIAAAAWAAMAAAAFAAEAAAAWAAQAAAAFAAIAAAAPAPX/AAAEAAMAAAAUAAQAAAAFAAAAAAAGAAcAAAAGAAMAAAAIAAQAAAAGAAMAAAAOAAAAAAAGAAMAAAAOAPX/AAADAAMAAAABAAkAAAACAAEAAAACAAkAAAACAAEAAAADAAkAAAACAAEAAAAEAAkAAAACAAEAAAAFAAkAAAACAAEAAAAAAAkAAAABAAEAAAAAAAoAAAABAAIAAAAGAAkAAAADAAEAAAAGAAoAAAADAAIAAAABAAoAAAACAAIAAAACAAoAAAACAAIAAAADAAoAAAACAAIAAAAEAAoAAAACAAIAAAAFAAoAAAACAAIAAAAQAPX/AAAFAAMAAAACAPL/AAAAAAAAAAADAPD/AAAEAAEAAAADAPH/AAAEAAIAAAADAPL/AAABAAAAAAADAPP/AAABAAEAAAADAPT/AAABAAIAAAAEAPD/AAAFAAEAAAAEAPH/AAAFAAIAAAAEAPL/AAACAAAAAAAEAPP/AAACAAEAAAAEAPT/AAACAAIAAAAFAPH/AAAFAAAAAAAFAPL/AAADAAAAAAAFAPP/AAADAAEAAAAFAPT/AAADAAIAAAAGAPL/AAAEAAAAAAAlAPj/AAAFAAAAAAAlAPn/AAAGAAAAAAAlAPr/AAAGAAEAAAAlAPv/AAAGAAIAAAAoAP//AAAGAAMAAAAoAAAAAAAAAAMAAAApAAAAAAABAAMAAAAqAAAAAAACAAMAAADr/+f/AAAFAAAAAADr/+j/AAAGAAAAAADr/+n/AAAGAAEAAADr/+r/AAAGAAIAAADu/+7/AAAGAAMAAADu/+//AAAAAAMAAADv/+//AAABAAMAAADw/+//AAACAAMAAAA=")
 tile_set = SubResource("TileSet_tq1so")
+
+[node name="LogicBlocks" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAbAAIAAgAGAAAAAAAbAAMAAgAGAAEAAAAcAAIAAgAHAAAAAAAcAAMAAgAHAAEAAAAiAAEAAwAGAAAAAAAiAAIAAwAGAAEAAAAjAAEAAwAHAAAAAAAjAAIAAwAHAAEAAAAdAPf/AgAGAAAAAAAdAPj/AgAGAAEAAAAeAPf/AgAHAAAAAAAeAPj/AgAHAAEAAAAXAPb/AwAGAAAAAAAXAPf/AwAGAAEAAAAYAPb/AwAHAAAAAAAYAPf/AwAHAAEAAAA=")
+tile_set = SubResource("TileSet_r52a4")
+script = ExtResource("10_c5s4o")
+bpm = 60.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_j3yal")
+volume_db = -9.542
+parameters/looping = true
