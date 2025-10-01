@@ -5,10 +5,6 @@ var current_scene: Node = null
 func _ready() -> void:
 	load_scene("MossyCave")
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		load_scene("level")
-
 func load_scene(scene_name: String) -> void:
 	var path = "res://Scenes/Levels/%s.tscn" % scene_name
 	var scene_res = load(path)
