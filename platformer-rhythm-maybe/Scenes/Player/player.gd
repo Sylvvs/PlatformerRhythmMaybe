@@ -15,9 +15,11 @@ var dash_dir := Vector2.ZERO
 
 var last_x_dir := 0
 var last_y_dir := 0
+var direction := 1
 
 @onready var animation_tree = $AnimationTree
 @onready var sprite = $Sprite2D
+
 
 func _physics_process(delta: float) -> void:
 	var input_vec := get_input_vector()
@@ -29,6 +31,8 @@ func _physics_process(delta: float) -> void:
 		if input_vec.x == 1:
 			if velocity.x < SPEED_MAX: velocity.x += SPEED_ACC
 		elif velocity.x > 0: velocity.x -= SPEED_ACC
+	if abs(velocity.x) < SPEED_ACC:
+		velocity.x = 0
 
 	if is_on_floor() and dash_timer >= DASH_TIME:
 		var friction = SPEED_ACC
@@ -39,19 +43,23 @@ func _physics_process(delta: float) -> void:
 
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		animation_tree["parameters/conditions/idle"] = false
 		animation_tree["parameters/conditions/jumping"] = true
 		animation_tree["parameters/conditions/dashing"] = false
-		animation_tree["parameters/conditions/running"] = false
 		velocity.y = JUMP_FORCE
 		dash_timer = DASH_TIME
+	if Input.is_action_just_pressed("jump") and is_on_wall() and not is_on_floor():
+		animation_tree["parameters/conditions/jumping"] = true
+		animation_tree["parameters/conditions/sliding"] = false
+		velocity.y = JUMP_FORCE
+		dash_timer = DASH_TIME
+		velocity.x = -direction * SPEED_MAX * 2.3
+		pass
 	if Input.is_action_just_released("jump") and velocity.y < 0 and dash_timer >= DASH_TIME:
 		velocity.y = 0
 
 
 	if Input.is_action_just_pressed("dash") and dashes > 0 and dash_timer >= DASH_TIME:
-		animation_tree["parameters/conditions/jumping"] = false
-		animation_tree["parameters/conditions/idle"] = false
+		disable_conditions(["jumping","idle"])
 		animation_tree["parameters/conditions/dashing"] = true
 		dashes -= 1
 		dash_timer = 0.0
@@ -82,18 +90,22 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity.x > 0:
 		sprite.flip_h = false
+		direction = 1
 	elif velocity.x < 0:
 		sprite.flip_h = true
-	
+		direction = -1
+		
 	if is_on_floor():
-		animation_tree["parameters/conditions/jumping"] = false
-		animation_tree["parameters/conditions/falling"] = false
+		disable_conditions(["jumping","falling","sliding"])
 	else:
-		animation_tree["parameters/conditions/running"] = false
+		disable_conditions(["running","idle"])
 	
-	if velocity.y > 0:
+	if velocity.y > 0 and is_on_wall():
+		animation_tree["parameters/conditions/sliding"] = true
+		disable_conditions(['dashing','falling','jumping'])
+	elif velocity.y > 0:
 		animation_tree["parameters/conditions/falling"] = true
-		animation_tree["parameters/conditions/jumping"] = false
+		disable_conditions(['jumping','sliding'])
 		
 	if abs(velocity.x) > 0 and is_on_floor():
 		animation_tree["parameters/conditions/running"] = true
@@ -101,7 +113,6 @@ func _physics_process(delta: float) -> void:
 	elif is_on_floor():
 		animation_tree["parameters/conditions/running"] = false
 		animation_tree["parameters/conditions/idle"] = true
-		
 		
 func get_input_vector() -> Vector2:
 	last_x_dir = get_axis_dir("walk_left", "walk_right", last_x_dir)
@@ -130,4 +141,11 @@ func get_axis_dir(neg_action: String, pos_action: String, last_dir: int) -> int:
 func get_global_rect() -> Rect2:
 	var shape = $Hitbox.shape as RectangleShape2D
 	return Rect2(global_position - shape.extents, shape.extents * 2.0)
-#
+
+func disable_conditions(conditions=[]):
+	var thing = "parameters/conditions/"
+	for condition in conditions:
+		var key = thing + condition
+		if condition == "sliding" and animation_tree[key]:
+			sprite.flip_h = !sprite.flip_h
+		animation_tree[key] = false
