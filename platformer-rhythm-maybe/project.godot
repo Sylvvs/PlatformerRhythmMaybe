@@ -15,6 +15,10 @@ run/main_scene="uid://b1hqntcixxhv1"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Fadelayer="*res://Scenes/Logic/fadelayer.tscn"
+
 [display]
 
 window/size/viewport_width=384

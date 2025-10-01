@@ -1324,6 +1324,7 @@ sources/5 = SubResource("TileSetAtlasSource_b37dq")
 sources/6 = SubResource("TileSetAtlasSource_mf10p")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msb5r"]
+size = Vector2(67, 20)
 
 [node name="MossyCave" type="Node2D"]
 
@@ -1355,9 +1356,10 @@ parameters/looping = true
 [node name="Logic" type="Node2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="Logic"]
-position = Vector2(123, 71)
+position = Vector2(1183, 105)
 script = ExtResource("12_vhalp")
+next_scene = "level"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Logic/Area2D"]
-position = Vector2(-174, 57)
+position = Vector2(-150.5, 57)
 shape = SubResource("RectangleShape2D_msb5r")
