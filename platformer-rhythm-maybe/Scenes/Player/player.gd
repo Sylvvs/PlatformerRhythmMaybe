@@ -51,6 +51,7 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("dash") and dashes > 0 and dash_timer >= DASH_TIME:
 		animation_tree["parameters/conditions/jumping"] = false
+		animation_tree["parameters/conditions/idle"] = false
 		animation_tree["parameters/conditions/dashing"] = true
 		dashes -= 1
 		dash_timer = 0.0

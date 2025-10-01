@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://umjvgxn3ts5a" path="res://Scripts/rhythm_blocks.gd" id="10_vhalp"]
 [ext_resource type="AudioStream" uid="uid://bnselbinqchcf" path="res://Audio/mus/summit_casette.mp3" id="11_ym13l"]
 [ext_resource type="Script" uid="uid://cuu5tsr2yahe5" path="res://Scripts/scene_loader.gd" id="12_vhalp"]
-[ext_resource type="Texture2D" uid="uid://f1wppnx47ml2" path="res://Tile maps/Planty cave/ShineOnSprites/BackgroundImages/ForestBG4.png" id="15_gisxm"]
+[ext_resource type="Texture2D" uid="uid://ww3jon60fuxx" path="res://Sprites/Background/aaf25d9d770be7f8391ae0920a1844cb.jpg" id="13_msb5r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5gy6l"]
 texture = ExtResource("2_dsuma")
@@ -1364,5 +1364,7 @@ shape = SubResource("RectangleShape2D_msb5r")
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
 z_index = -1
-scale = Vector2(5, 5)
-texture = ExtResource("15_gisxm")
+texture_filter = 1
+position = Vector2(552, -11.000004)
+scale = Vector2(2, 2)
+texture = ExtResource("13_msb5r")
