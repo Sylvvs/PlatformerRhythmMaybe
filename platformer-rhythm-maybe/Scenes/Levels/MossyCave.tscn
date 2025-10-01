@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://b018l18srfkyr"]
+[gd_scene load_steps=26 format=4 uid="uid://b018l18srfkyr"]
 
 [ext_resource type="PackedScene" uid="uid://dltcbpil41j82" path="res://Scenes/Player/player.tscn" id="1_x6s7g"]
 [ext_resource type="Texture2D" uid="uid://b0a7qtiol6abi" path="res://Tile maps/Planty cave/ShineOnSprites/Sheets/SheetA.png" id="2_dsuma"]
@@ -11,7 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://dqakr164u7h4u" path="res://Tile maps/PlatformerWalls/Castle/OutlinedSimple/Pink.png" id="9_ym13l"]
 [ext_resource type="Script" uid="uid://umjvgxn3ts5a" path="res://Scripts/rhythm_blocks.gd" id="10_vhalp"]
 [ext_resource type="AudioStream" uid="uid://bnselbinqchcf" path="res://Audio/mus/summit_casette.mp3" id="11_ym13l"]
-[ext_resource type="Script" uid="uid://cuu5tsr2yahe5" path="res://scripts/scene_loader.gd" id="12_vhalp"]
+[ext_resource type="Script" uid="uid://cuu5tsr2yahe5" path="res://Scripts/scene_loader.gd" id="12_vhalp"]
+[ext_resource type="Texture2D" uid="uid://f1wppnx47ml2" path="res://Tile maps/Planty cave/ShineOnSprites/BackgroundImages/ForestBG4.png" id="15_gisxm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5gy6l"]
 texture = ExtResource("2_dsuma")
@@ -1358,3 +1359,10 @@ script = ExtResource("12_vhalp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Logic/Area2D"]
 position = Vector2(-174, 57)
 shape = SubResource("RectangleShape2D_msb5r")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+z_index = -1
+scale = Vector2(5, 5)
+texture = ExtResource("15_gisxm")
