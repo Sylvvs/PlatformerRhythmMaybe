@@ -26,6 +26,7 @@ func load_scene(scene_name: String) -> void:
 				area.body_entered.connect(func(body):
 					_on_area_entered(area, body)
 					)
+	Fadelayer.fade_out(0.3)
 
 func _on_area_entered(area, body) -> void:
 	if not body.is_in_group("Player"):
@@ -36,4 +37,5 @@ func _on_area_entered(area, body) -> void:
 		return
 	
 	var next_scene = area.get("next_scene")
-	load_scene(next_scene)
+	Fadelayer.fade_in(0.3).connect("finished", Callable(self, "load_scene").bind(next_scene))
+	

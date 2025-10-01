@@ -3,6 +3,7 @@ extends TileMapLayer
 @export var bpm: float = 120.0
 
 @onready var collision = load("res://Scenes/Logic/BlockCollision.tscn")
+@onready var bouncy = load("res://Scenes/Logic/Bouncy.tscn")
 @onready var player = $"../Player"
 @onready var audio_player = $"../AudioStreamPlayer"
 
@@ -20,13 +21,28 @@ func _ready() -> void:
 	
 	for cell in get_used_cells():
 		var data = get_cell_tile_data(cell)
-		var color = data.get_custom_data("Color")
+		var color = data.get_custom_data("Color") if data.has_custom_data("Color") else ""
+		var type = data.get_custom_data("Type") if data.has_custom_data("Type") else ""
 		if color == "blue":
 			blue_blocks.push_front(cell)
 		elif color == "pink":
 			pink_blocks.push_front(cell)
+		
+		if type != "":
+			_handle_type(cell, type)
+		
 	_turn_on("blue" if blue_active else "pink")
 	_turn_off("blue" if !blue_active else "pink")
+
+var bouncy_blocks = [];
+
+func _handle_type(cell, type):
+	match type:
+		"bouncy":
+			var block = bouncy.instantiate()
+			get_parent().add_child.call_deferred(block)
+			bouncy_blocks.push_front(block)
+			block.position = map_to_local(cell)
 
 
 func _process(delta: float) -> void:
