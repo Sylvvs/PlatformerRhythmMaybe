@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bon260pu7piyu"]
+
+[ext_resource type="Script" uid="uid://bp2nsko4kn53g" path="res://scripts/bouncy.gd" id="1_1kayv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqahx"]
+size = Vector2(16, 16)
+
+[node name="Bouncy" type="Area2D"]
+script = ExtResource("1_1kayv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sqahx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
