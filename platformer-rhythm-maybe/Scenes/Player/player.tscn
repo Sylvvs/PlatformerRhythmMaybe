@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://dltcbpil41j82"]
+[gd_scene load_steps=56 format=3 uid="uid://dltcbpil41j82"]
 
 [ext_resource type="Script" uid="uid://b3bnv1ruv581n" path="res://Scenes/Player/player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://cucx2swpyskne" path="res://Sprites/Player Sprites/run.png" id="2_htcer"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dkl60afcnhorx" path="res://Sprites/Player Sprites/wallslide.png" id="5_jlvik"]
 [ext_resource type="Texture2D" uid="uid://blv5fvjkvv75" path="res://Sprites/Player Sprites/dash.png" id="6_dd0ac"]
 [ext_resource type="Texture2D" uid="uid://pq7513q71nrf" path="res://Sprites/Player Sprites/fall.png" id="7_0u5uq"]
+[ext_resource type="AudioStream" uid="uid://djk0uyplk5nto" path="res://Audio/SFX/cartoon-jump-6462.mp3" id="8_jlvik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(8, 9)
@@ -447,3 +448,10 @@ parameters/conditions/idle = false
 parameters/conditions/jumping = false
 parameters/conditions/running = false
 parameters/conditions/sliding = false
+
+[node name="SFXHandler" type="Node2D" parent="."]
+
+[node name="Jump" type="AudioStreamPlayer" parent="SFXHandler"]
+stream = ExtResource("8_jlvik")
+volume_db = -15.0
+pitch_scale = 1.44

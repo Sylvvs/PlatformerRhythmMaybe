@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bon260pu7piyu"]
+[gd_scene load_steps=4 format=3 uid="uid://bon260pu7piyu"]
 
 [ext_resource type="Script" uid="uid://bp2nsko4kn53g" path="res://scripts/bouncy.gd" id="1_1kayv"]
+[ext_resource type="AudioStream" uid="uid://b1qddh3rs388e" path="res://Audio/SFX/funny-spring-jump-140378.mp3" id="2_sqahx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqahx"]
 size = Vector2(16, 16)
@@ -10,5 +11,10 @@ script = ExtResource("1_1kayv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sqahx")
+
+[node name="SpringSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_sqahx")
+volume_db = -18.605
+pitch_scale = 1.05
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

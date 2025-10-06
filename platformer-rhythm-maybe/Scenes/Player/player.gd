@@ -23,6 +23,7 @@ var is_loading = false;
 
 @onready var animation_tree = $AnimationTree
 @onready var sprite = $Sprite2D
+@onready var SFX = $SFXHandler/Jump
 
 
 func _physics_process(delta: float) -> void:
@@ -49,6 +50,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or coyote_timer < COYOTE_TIME):
 		animation_tree["parameters/conditions/jumping"] = true
 		animation_tree["parameters/conditions/dashing"] = false
+		SFX.play()
 		velocity.y = JUMP_FORCE
 		dash_timer = DASH_TIME
 		coyote_timer = COYOTE_TIME
