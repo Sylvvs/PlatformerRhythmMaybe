@@ -16,6 +16,7 @@ var dash_dir := Vector2.ZERO
 var last_x_dir := 0
 var last_y_dir := 0
 var direction := 1
+var is_loading = false;
 
 @onready var animation_tree = $AnimationTree
 @onready var sprite = $Sprite2D
