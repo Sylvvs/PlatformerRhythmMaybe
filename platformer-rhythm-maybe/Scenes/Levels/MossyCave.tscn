@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://b52x8l6hfiu7l"]
+[gd_scene load_steps=26 format=4 uid="uid://b018l18srfkyr"]
 
 [ext_resource type="PackedScene" uid="uid://dltcbpil41j82" path="res://Scenes/Player/player.tscn" id="1_x6s7g"]
 [ext_resource type="Texture2D" uid="uid://b0a7qtiol6abi" path="res://Tile maps/Planty cave/ShineOnSprites/Sheets/SheetA.png" id="2_dsuma"]

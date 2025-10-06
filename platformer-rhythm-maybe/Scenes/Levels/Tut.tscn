@@ -434,9 +434,9 @@ text = "Jump while sliding to walljump"
 
 [node name="Label5" type="Label" parent="Text"]
 layout_mode = 0
-offset_left = 848.0
+offset_left = 849.0
 offset_top = -205.0
-offset_right = 1093.0
+offset_right = 1109.0
 offset_bottom = -153.0
 theme_override_constants/line_spacing = -2
 theme_override_fonts/font = ExtResource("9_8vkrp")
@@ -449,6 +449,7 @@ Tip: This also resets your dash"
 [node name="Area2D" type="Area2D" parent="Logic"]
 position = Vector2(1721, -249)
 script = ExtResource("14_n6spx")
+next_scene = "level"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Logic/Area2D"]
 position = Vector2(-278.5, 117.5)

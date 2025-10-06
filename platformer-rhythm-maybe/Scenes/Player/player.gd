@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_wall() and not is_on_floor():
 		animation_tree["parameters/conditions/jumping"] = true
 		animation_tree["parameters/conditions/sliding"] = false
-		velocity.y = JUMP_FORCE
+		velocity.y = JUMP_FORCE - 50
 		dash_timer = DASH_TIME
 		velocity.x = -direction * SPEED_MAX * 2.3
 		pass
