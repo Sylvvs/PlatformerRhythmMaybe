@@ -436,12 +436,13 @@ text = "Jump while sliding to walljump"
 layout_mode = 0
 offset_left = 848.0
 offset_top = -205.0
-offset_right = 1066.0
-offset_bottom = -168.0
-theme_override_constants/line_spacing = -9
+offset_right = 1093.0
+offset_bottom = -153.0
+theme_override_constants/line_spacing = -2
 theme_override_fonts/font = ExtResource("9_8vkrp")
-text = "Press jump while dashing horizontally 
-on the ground to perform a super jump"
+text = "Press jump while dashing on the ground
+and holding a direction to do a superjump
+Tip: This also resets your dash"
 
 [node name="Logic" type="Node2D" parent="."]
 
