@@ -4,6 +4,7 @@ extends TileMapLayer
 
 @onready var collision = load("res://Scenes/Logic/BlockCollision.tscn")
 @onready var bouncy = load("res://Scenes/Logic/Bouncy.tscn")
+@onready var kill = load("res://Scenes/Logic/Kill.tscn")
 @onready var player = $"../Player"
 @onready var audio_player = $"../AudioStreamPlayer"
 
@@ -35,6 +36,7 @@ func _ready() -> void:
 	_turn_off("blue" if !blue_active else "pink")
 
 var bouncy_blocks = [];
+var kill_blocks = [];
 
 func _handle_type(cell, type):
 	match type:
@@ -42,6 +44,11 @@ func _handle_type(cell, type):
 			var block = bouncy.instantiate()
 			get_parent().add_child.call_deferred(block)
 			bouncy_blocks.push_front(block)
+			block.position = map_to_local(cell)
+		"kill":
+			var block = kill.instantiate()
+			get_parent().add_child.call_deferred(block)
+			kill_blocks.push_front(block)
 			block.position = map_to_local(cell)
 
 
