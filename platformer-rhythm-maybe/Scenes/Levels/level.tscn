@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cxjym1yycvd6d" path="res://Tile maps/PlatformerWalls/Castle/OutlinedSimple/Diamond-Blue.png" id="8_j3yal"]
 [ext_resource type="Texture2D" uid="uid://dqakr164u7h4u" path="res://Tile maps/PlatformerWalls/Castle/OutlinedSimple/Pink.png" id="9_r0lyn"]
 [ext_resource type="Script" uid="uid://umjvgxn3ts5a" path="res://Scripts/rhythm_blocks.gd" id="10_c5s4o"]
-[ext_resource type="AudioStream" uid="uid://bnselbinqchcf" path="res://Audio/mus/summit_casette.mp3" id="11_j3yal"]
+[ext_resource type="AudioStream" uid="uid://b0y4qtgpb7b6b" path="res://Audio/mus/golden_ridge_casette.mp3" id="11_j3yal"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lkqqh"]
 texture = ExtResource("2_yjxcc")
