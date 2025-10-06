@@ -4,6 +4,7 @@ const SPEED_ACC = 25
 const SPEED_MAX = 100
 const JUMP_FORCE = -175
 const GRAVITY = 7
+const COYOTE_TIME = 0.2
 
 # Dash
 const DASH_SPEED = 300
@@ -12,6 +13,8 @@ const DASH_TIME = 0.20
 var dashes := 1
 var dash_timer := DASH_TIME
 var dash_dir := Vector2.ZERO
+
+var coyote_timer = 0
 
 var last_x_dir := 0
 var last_y_dir := 0
@@ -42,11 +45,12 @@ func _physics_process(delta: float) -> void:
 			velocity.x = max(velocity.x + friction, -SPEED_MAX)
 
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or coyote_timer < COYOTE_TIME):
 		animation_tree["parameters/conditions/jumping"] = true
 		animation_tree["parameters/conditions/dashing"] = false
 		velocity.y = JUMP_FORCE
 		dash_timer = DASH_TIME
+		coyote_timer = COYOTE_TIME
 	if Input.is_action_just_pressed("jump") and is_on_wall() and not is_on_floor():
 		animation_tree["parameters/conditions/jumping"] = true
 		animation_tree["parameters/conditions/sliding"] = false
@@ -99,8 +103,10 @@ func _physics_process(delta: float) -> void:
 		
 	if is_on_floor():
 		disable_conditions(["jumping","falling","sliding"])
+		coyote_timer = 0
 	else:
 		disable_conditions(["running","idle"])
+		coyote_timer += delta
 	
 	if velocity.y > 0 and is_on_wall():
 		animation_tree["parameters/conditions/sliding"] = true
