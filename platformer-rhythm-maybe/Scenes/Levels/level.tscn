@@ -288,6 +288,11 @@ sources/0 = SubResource("TileSetAtlasSource_kogc4")
 
 [node name="level" type="Node2D"]
 
+[node name="Sprite 1" type="Sprite2D" parent="."]
+position = Vector2(300, -200)
+scale = Vector2(2, 8)
+texture = ExtResource("1_rv5g2")
+
 [node name="Cloud Background" type="Node2D" parent="."]
 
 [node name="Layer 1" type="Parallax2D" parent="Cloud Background"]
