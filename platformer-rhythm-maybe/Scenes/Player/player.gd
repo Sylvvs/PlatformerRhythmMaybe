@@ -102,6 +102,10 @@ func _physics_process(delta: float) -> void:
 		sprite.flip_h = true
 		direction = -1
 		
+		
+	if is_on_wall():
+		dashes = 1
+		
 	if is_on_floor():
 		disable_conditions(["jumping","falling","sliding"])
 		coyote_timer = 0
