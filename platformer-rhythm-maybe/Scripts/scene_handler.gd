@@ -14,6 +14,7 @@ func load_scene(scene_name: String) -> void:
 
 	if current_scene != null:
 		current_scene.queue_free()
+		await get_tree().process_frame
 
 	current_scene = scene_res.instantiate()
 	add_child(current_scene)
