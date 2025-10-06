@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://b5qjvjq772cbw"]
+[gd_scene load_steps=23 format=4 uid="uid://dpcgen245lieq"]
 
 [ext_resource type="PackedScene" uid="uid://dltcbpil41j82" path="res://Scenes/Player/player.tscn" id="1_e73y0"]
 [ext_resource type="Texture2D" uid="uid://d4fylekcuwcaw" path="res://Sprites/Backgrounds/Clouds/Clouds 7/1.png" id="1_hym82"]
@@ -395,6 +395,7 @@ offset_left = -46.0
 offset_top = 43.0
 offset_right = 172.0
 offset_bottom = 80.0
+theme_override_constants/line_spacing = -7
 theme_override_fonts/font = ExtResource("9_8vkrp")
 text = "Press c or space to jump
 Tip: Hold the button to jump higher"
@@ -405,9 +406,11 @@ offset_left = 200.0
 offset_top = 20.0
 offset_right = 418.0
 offset_bottom = 57.0
+theme_override_constants/line_spacing = -4
 theme_override_fonts/font = ExtResource("9_8vkrp")
 text = "Press x or shift to dash
-Tip: You can dash midair"
+Tip: You can dash midair
+and in all directions"
 
 [node name="Label3" type="Label" parent="Text"]
 layout_mode = 0
@@ -415,6 +418,7 @@ offset_left = 359.0
 offset_top = -8.0
 offset_right = 591.0
 offset_bottom = 29.0
+theme_override_constants/line_spacing = -9
 theme_override_fonts/font = ExtResource("9_8vkrp")
 text = "Blue and Pink blocks swap to the beat
 Make sure to time your jumps!"
@@ -424,6 +428,7 @@ layout_mode = 0
 offset_left = 617.0
 offset_right = 866.0
 offset_bottom = 37.0
+theme_override_constants/line_spacing = -9
 theme_override_fonts/font = ExtResource("9_8vkrp")
 text = "Jump while sliding to walljump"
 
@@ -433,6 +438,7 @@ offset_left = 848.0
 offset_top = -205.0
 offset_right = 1066.0
 offset_bottom = -168.0
+theme_override_constants/line_spacing = -9
 theme_override_fonts/font = ExtResource("9_8vkrp")
 text = "Press jump while dashing horizontally 
 on the ground to perform a super jump"
