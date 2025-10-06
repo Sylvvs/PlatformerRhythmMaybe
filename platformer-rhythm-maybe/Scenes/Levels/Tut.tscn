@@ -328,7 +328,7 @@ sources/3 = SubResource("TileSetAtlasSource_ar0ve")
 sources/0 = SubResource("TileSetAtlasSource_7va7s")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcs1a"]
-size = Vector2(67, 223)
+size = Vector2(157, 97)
 
 [node name="Tut" type="Node2D"]
 
@@ -444,5 +444,5 @@ position = Vector2(1721, -249)
 script = ExtResource("14_n6spx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Logic/Area2D"]
-position = Vector2(-221, 107)
+position = Vector2(-278.5, 117.5)
 shape = SubResource("RectangleShape2D_hcs1a")
